@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body class="page">
+  <section class="constants">
+    <h2>Константи</h2>
+
+    <form class="constantsForm">
+      <div class="form__field">
+        <label for="mineBuildPrice">Ціна побудови шахти</label>
+        <input id="mineBuildPrice" name="mineBuildPrice" type="number" placeholder="8000000000" min="1" required>
+      </div>
+      <div class="form__field">
+        <label for="mineProduction">Виробництво шахти за годину, при 100% якості</label>
+        <input id="mineProduction" name="mineProduction" type="number" placeholder="1275" min="1" required>
+      </div>
+      <div class="form__field">
+        <label for="resourcesPrice">Ціна продажу 1 ресурсу</label>
+        <input id="resourcesPrice" name="resourcesPrice" type="number" placeholder="2744" min="1" required>
+      </div>
+      <div class="form__field">
+        <label for="mineQuality">Якість вашої шахти (%)</label>
+        <input id="mineQuality" name="mineQuality" type="number" value="100" min="1">
+      </div>
+      <div class="form__field">
+        <label for="upgradeHeadquarter">Апгрейд штабу (х)</label>
+        <input id="upgradeHeadquarter" name="upgradeHeadquarter" type="text" value="1.00">
+      </div>
+      <div class="form__field">
+        <label for="upgradeRate">Апгрейд шахти (х)</label>
+        <input id="upgradeRate" name="upgradeRate" type="text" value="1.00">
+      </div>
+      <div class="form__field">
+        <label for="fullUpgradePrice">Ціна 5.05х апгрейду шахти</label>
+        <input id="fullUpgradePrice" name="fullUpgradePrice" type="number" value="22000000000" min="1">
+      </div>
+      <div class="form__field">
+        <label for="maintenance">Ціна обслуговування за день</label>
+        <input id="maintenance" name="maintenance" type="number" value="2000000" min="0">
+      </div>
+      <button class="button" type="submit">Розрахувати профітність</button>
+    </form>
+  </section>
+
+  <section class="results">
+    <h2>Результат</h2>
+    <p>Шахта буде давати профіт через: <span id="payBackOutput"></span> Дня</p>
+    <p>Чистий дохід за день: <span id="clearProfitOutput"></span></p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
