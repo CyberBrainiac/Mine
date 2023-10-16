@@ -24,17 +24,19 @@ function calcPayback(ev) {
     alert("Поле 'Апгрейд штабу' може бути тільки числом в діапазоні від 1 до 10");
     return null;
   }
-  if(upgradeRate === 1 || upgradeRate === 5.05) {
-
-    const dayDirtyProfit = mineProduction * mineQuality * resourcesPrice * 24 * upgradeHeadquarter * upgradeRate;
-    const dayClearProfit = dayDirtyProfit - maintenance;
-    const mineFullPrice = mineBuildPrice + fullUpgradePrice + 200000; /**scan value*/
-    const paybackDays = mineFullPrice / dayClearProfit;
-
-    clearProfitOutput.textContent = dayClearProfit.toFixed(0);
-    payBackOutput.textContent = paybackDays.toFixed(1);
-  } else {
-    alert("Поле 'Апгрейд шахти' може приймати значення 1 або 5.05");
+  if(upgradeRate < 1) {
+    alert("Поле 'Апгрейд шахти' не може приймати значення меньше 1");
     return null;
   }
+
+  const additionalUpgradeRate = upgradeRate - 1;
+  const upgradePrice = additionalUpgradeRate * fullUpgradePrice / 4.05;
+
+  const dayDirtyProfit = mineProduction * mineQuality * resourcesPrice * 24 * upgradeHeadquarter * upgradeRate;
+  const dayClearProfit = dayDirtyProfit - maintenance;
+  const mineFullPrice = mineBuildPrice + upgradePrice + 200000000; /**scan value*/
+  const paybackDays = mineFullPrice / dayClearProfit;
+
+  clearProfitOutput.textContent = dayClearProfit.toFixed(0);
+  payBackOutput.textContent = paybackDays.toFixed(1);
 }

@@ -72,3 +72,14 @@ label {
   color: green;
 }
 
+@media screen and (max-width: 600px) {
+  .form__field {
+    flex-direction: column;
+    max-width: 100vw;
+
+  }
+  .constantsForm {
+    padding: 0 10px;
+  }
+}
+
